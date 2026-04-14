@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduMood Smart Learning</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#a9d3e5;
+}
+
+/* NAVBAR */
+.navbar{
+background:#ffd400;
+display:flex;
+justify-content:space-between;
+padding:12px 20px;
+font-weight:bold;
+}
+
+.menu a{
+margin-left:15px;
+text-decoration:none;
+color:black;
+}
+
+/* HERO */
+.hero{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+}
+
+.mulai{
+background:#ff8c00;
+color:white;
+padding:15px 25px;
+border-radius:12px;
+text-decoration:none;
+}
+
+/* MAIN */
+.main{
+display:flex;
+gap:20px;
+padding:20px;
+flex-wrap:wrap;
+}
+
+/* MOOD BOX */
+.mood-box{
+background:white;
+border-radius:20px;
+padding:20px;
+width:320px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.moods{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+.mood{
+font-size:28px;
+cursor:pointer;
+transition:0.3s;
+text-align:center;
+}
+
+.mood:hover{
+transform:scale(1.2);
+}
+
+/* RESULT */
+.result{
+margin-top:15px;
+font-size:14px;
+}
+
+/* BUTTON */
+.reset{
+margin-top:10px;
+background:red;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* GRID MENU */
+.grid{
+flex:1;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card img{
+width:100%;
+height:140px;
+object-fit:cover;
+}
+
+.card a{
+display:block;
+padding:10px;
+text-align:center;
+text-decoration:none;
+color:black;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div>🎧 EduMood Smart Learning</div>
+
+<div class="menu">
+<a href="home.html">Beranda</a>
+<a href="video.html">Video</a>
+<a href="game edukasi.html">Game</a>
+<a href="mission game.html">Misi</a>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h2>Belajar Seru Sesuai Mood dan Gaya Belajarmu</h2>
+<a class="mulai" href="#">Mulai Belajar</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- MOOD CHECK -->
+<div class="mood-box">
+
+<h3>MOOD CHECK-IN</h3>
+<p>Gimana Perasaanmu Hari Ini?</p>
+
+<div class="moods">
+
+<div class="mood" onclick="pilihMood('happy')">
+😊<br>Happy
+</div>
+
+<div class="mood" onclick="pilihMood('calm')">
+🙂<br>Calm
+</div>
+
+<div class="mood" onclick="pilihMood('confused')">
+😕<br>Confused
+</div>
+
+<div class="mood" onclick="pilihMood('tired')">
+😴<br>Tired
+</div>
+
+</div>
+
+<div class="result" id="hasil"></div>
+
+<button class="reset" onclick="resetMood()">
+Reset Jawaban
+</button>
+
+</div>
+
+<!-- MENU -->
+<div class="grid">
+
+<div class="card">
+<img src="https://via.placeholder.com/400x200">
+<a href="video.html">Video Pembelajaran</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/400x200">
+<a href="game edukasi.html">Game Edukasi</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/400x200">
+<a href="mission game.html">Mission Learning</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/400x200">
+<a href="funbreak.html">Fun Break</a>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* DATA MOOD */
+let moodData={
+happy:0,
+calm:0,
+confused:0,
+tired:0
+};
+
+function pilihMood(mood){
+
+moodData[mood]++;
+
+updateTampilan();
+
+}
+
+function updateTampilan(){
+
+let total =
+moodData.happy+
+moodData.calm+
+moodData.confused+
+moodData.tired;
+
+if(total===0)return;
+
+let hasilHTML=`
+Happy : ${persen(moodData.happy,total)}% <br>
+Calm : ${persen(moodData.calm,total)}% <br>
+Confused : ${persen(moodData.confused,total)}% <br>
+Tired : ${persen(moodData.tired,total)}% <br>
+<br>
+<b>Mood Terbanyak: ${moodTerbanyak()}</b>
+`;
+
+document.getElementById("hasil").innerHTML=hasilHTML;
+}
+
+function persen(nilai,total){
+return Math.round((nilai/total)*100);
+}
+
+function moodTerbanyak(){
+
+let terbesar="happy";
+for(let mood in moodData){
+if(moodData[mood]>moodData[terbesar]){
+terbesar=mood;
+}
+}
+return terbesar.toUpperCase();
+}
+
+function resetMood(){
+
+moodData={
+happy:0,
+calm:0,
+confused:0,
+tired:0
+};
+
+document.getElementById("hasil").innerHTML=
+"Data mood direset ✔";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EduMood - Video</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#a9d3e5;
+}
+
+/* NAVBAR */
+.navbar{
+background:#ffd400;
+display:flex;
+justify-content:space-between;
+padding:12px 20px;
+font-weight:bold;
+}
+
+.menu a{
+margin-left:15px;
+text-decoration:none;
+color:black;
+}
+
+/* HEADER */
+.header{
+text-align:center;
+padding:20px;
+}
+
+/* CONTAINER */
+.container{
+display:flex;
+gap:20px;
+padding:20px;
+flex-wrap:wrap;
+}
+
+/* VIDEO UTAMA */
+.video-main{
+background:white;
+border-radius:15px;
+padding:15px;
+width:420px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+iframe{
+width:100%;
+height:240px;
+border-radius:10px;
+border:none;
+}
+
+/* VIDEO LIST */
+.video-list{
+background:white;
+border-radius:15px;
+padding:15px;
+width:300px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.video-item{
+display:flex;
+gap:10px;
+margin-bottom:10px;
+cursor:pointer;
+background:#eee;
+padding:8px;
+border-radius:10px;
+}
+
+.video-item:hover{
+background:#ddd;
+}
+
+.video-item img{
+width:90px;
+border-radius:8px;
+}
+
+/* MANFAAT */
+.manfaat{
+background:#d9f2c3;
+border-radius:15px;
+padding:15px;
+width:260px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div>🎧 EduMood</div>
+
+<div class="menu">
+<a href="home.html">Beranda</a>
+<a href="video.html">Video</a>
+<a href="#">Game</a>
+<a href="#">Misi</a>
+</div>
+</div>
+
+<div class="header">
+<h2>Micro Learning Video</h2>
+<p>Belajar jadi lebih mudah dengan video singkat!</p>
+</div>
+
+<div class="container">
+
+<!-- VIDEO UTAMA -->
+<div class="video-main">
+
+<h3>VIDEO SAAT INI</h3>
+
+<iframe id="mainVideo"
+src="https://www.youtube.com/embed/irTMXtdnGag">
+</iframe>
+
+<p>Video pembelajaran singkat 3–5 menit</p>
+
+</div>
+
+<!-- VIDEO LAINNYA -->
+<div class="video-list">
+
+<h3>VIDEO LAINNYA</h3>
+
+<div class="video-item"
+onclick="gantiVideo('https://www.youtube.com/embed/irTMXtdnGag')">
+<img src="https://img.youtube.com/vi/irTMXtdnGag/0.jpg">
+<div>Video 1</div>
+</div>
+
+<div class="video-item"
+onclick="gantiVideo('https://www.youtube.com/embed/RyP6Y-CqFZ8')">
+<img src="https://img.youtube.com/vi/RyP6Y-CqFZ8/0.jpg">
+<div>Video 2</div>
+</div>
+
+<div class="video-item"
+onclick="gantiVideo('https://www.youtube.com/embed/lVyGpfwIBFg')">
+<img src="https://img.youtube.com/vi/lVyGpfwIBFg/0.jpg">
+<div>Video 3</div>
+</div>
+
+<div class="video-item"
+onclick="gantiVideo('https://www.youtube.com/embed/s9OhPN2LXYc')">
+<img src="https://img.youtube.com/vi/s9OhPN2LXYc/0.jpg">
+<div>Video 4</div>
+</div>
+
+<div class="video-item"
+onclick="gantiVideo('https://www.youtube.com/embed/MyvOBzat9vE')">
+<img src="https://img.youtube.com/vi/MyvOBzat9vE/0.jpg">
+<div>Video 5</div>
+</div>
+
+</div>
+
+<!-- MANFAAT -->
+<div class="manfaat">
+
+<h3>❤️ Manfaat</h3>
+
+<ul>
+<li>Membantu siswa visual belajar</li>
+<li>Pembelajaran lebih menarik</li>
+<li>Memudahkan memahami konsep</li>
+</ul>
+
+</div>
+
+</div>
+
+<script>
+function gantiVideo(link){
+document.getElementById("mainVideo").src = link;
+}
+</script>
+
+</body>
+</html>

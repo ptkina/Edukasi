@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EduMood - Learning Mission Game</title>
+
+<style>
+body{
+font-family: Arial;
+margin:0;
+background:#f4f8fb;
+text-align:center;
+}
+
+header{
+background:#4CAF50;
+color:white;
+padding:15px;
+font-size:22px;
+}
+
+.menu{
+display:flex;
+justify-content:center;
+gap:15px;
+padding:15px;
+background:white;
+}
+
+.menu a{
+text-decoration:none;
+padding:10px 15px;
+background:#e0f2f1;
+border-radius:10px;
+color:black;
+font-weight:bold;
+}
+
+section{
+display:none;
+padding:20px;
+}
+
+.active{
+display:block;
+}
+
+.video{
+margin:20px auto;
+max-width:600px;
+}
+
+iframe{
+width:100%;
+height:315px;
+border-radius:12px;
+border:none;
+}
+
+button{
+padding:10px 15px;
+border:none;
+background:#4CAF50;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+
+<script>
+function openMenu(id){
+document.querySelectorAll("section")
+.forEach(sec=>sec.classList.remove("active"));
+
+document.getElementById(id)
+.classList.add("active");
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+🎮 EduMood - Learning Mission Game
+</header>
+
+<!-- MENU -->
+<div class="menu">
+<a onclick="openMenu('home')">🏠 Home</a>
+<a onclick="openMenu('mission1')">🎬 Mission 1</a>
+<a onclick="openMenu('mission2')">💬 Diskusi</a>
+<a onclick="openMenu('mission3')">🎭 Praktik</a>
+<a onclick="openMenu('mission4')">🧠 Kuis</a>
+</div>
+
+<!-- HOME -->
+<section id="home" class="active">
+<h2>Selamat Datang di Learning Mission Game</h2>
+<p>
+Siswa menyelesaikan misi pembelajaran berbasis game.
+Setiap misi membantu meningkatkan fokus, karakter,
+dan semangat belajar.
+</p>
+
+<button onclick="openMenu('mission1')">
+Mulai Mission 🚀
+</button>
+</section>
+
+<!-- MISSION 1 VIDEO -->
+<section id="mission1">
+
+<h2>🎬 Mission 1 - Tonton Video</h2>
+<p>Pilih dan tonton video animasi berikut:</p>
+
+<div class="video">
+<h3>1. Nilai Kejujuran</h3>
+<iframe src="https://www.youtube.com/embed/irTMXtdnGag"></iframe>
+</div>
+
+<div class="video">
+<h3>2. Tolong Menolong</h3>
+<iframe src="https://www.youtube.com/embed/RyP6Y-CqFZ8"></iframe>
+</div>
+
+<div class="video">
+<h3>3. Rajin vs Malas</h3>
+<iframe src="https://www.youtube.com/embed/lVyGpfwIBFg"></iframe>
+</div>
+
+<div class="video">
+<h3>4. Hormat Guru & Orang Tua</h3>
+<iframe src="https://www.youtube.com/embed/s9OhPN2LXYc"></iframe>
+</div>
+
+<div class="video">
+<h3>5. Persahabatan & Kerja Sama</h3>
+<iframe src="https://www.youtube.com/embed/MyvOBzat9vE"></iframe>
+</div>
+
+<button onclick="openMenu('mission2')">
+Lanjut Diskusi ➜
+</button>
+
+</section>
+
+<!-- MISSION 2 -->
+<section id="mission2">
+<h2>💬 Mission 2 - Diskusi Kelompok</h2>
+
+<p>
+Diskusikan:
+</p>
+
+<ul style="text-align:left; max-width:500px; margin:auto;">
+<li>Apa pesan moral video?</li>
+<li>Siapa tokoh baik?</li>
+<li>Apa yang bisa ditiru?</li>
+</ul>
+
+<button onclick="openMenu('mission3')">
+Lanjut Praktik ➜
+</button>
+</section>
+
+<!-- MISSION 3 -->
+<section id="mission3">
+<h2>🎭 Mission 3 - Praktik</h2>
+
+<p>
+Kelompok melakukan roleplay dari cerita video.
+</p>
+
+<button onclick="openMenu('mission4')">
+Lanjut Kuis ➜
+</button>
+</section>
+
+<!-- MISSION 4 -->
+<section id="mission4">
+<h2>🧠 Mission 4 - Kuis Cepat</h2>
+
+<p>
+Guru memberikan pertanyaan cepat terkait nilai karakter.
+</p>
+
+<p>🎉 Mission Selesai!</p>
+
+<button onclick="openMenu('home')">
+Kembali Home
+</button>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EduMood Game Edukasi</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f1c3f;
+color:white;
+text-align:center;
+margin:0;
+}
+
+/* HEADER */
+header{
+background:#ffc107;
+color:black;
+padding:15px;
+font-size:22px;
+font-weight:bold;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+/* tombol home */
+.home-btn{
+background:black;
+color:white;
+padding:8px 15px;
+border-radius:8px;
+text-decoration:none;
+font-size:14px;
+}
+
+.box{
+background:white;
+color:black;
+margin:20px auto;
+padding:20px;
+border-radius:15px;
+width:90%;
+max-width:600px;
+}
+
+button{
+padding:10px 15px;
+margin:5px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.kelas button{
+background:#2196F3;
+color:white;
+}
+
+input{
+padding:10px;
+font-size:20px;
+width:120px;
+text-align:center;
+}
+
+.kontrol button{
+background:#ff9800;
+color:white;
+}
+
+.reset{
+background:red !important;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+🎮 Game Edukasi
+<a href="home.html" class="home-btn">⬅ Home</a>
+</header>
+
+<div class="box">
+
+<h3>Pilih Kelas</h3>
+
+<div class="kelas">
+<button onclick="setKelas(1)">Kelas 1</button>
+<button onclick="setKelas(2)">Kelas 2</button>
+<button onclick="setKelas(3)">Kelas 3</button>
+<button onclick="setKelas(4)">Kelas 4</button>
+<button onclick="setKelas(5)">Kelas 5</button>
+<button onclick="setKelas(6)">Kelas 6</button>
+</div>
+
+<h2 id="soal">Pilih kelas dulu</h2>
+
+<input type="number" id="jawaban" placeholder="Jawaban">
+
+<br><br>
+
+<button onclick="cekJawaban()">➡ Cek Jawaban</button>
+
+<div class="kontrol">
+<button onclick="acakSoal()">🔀 Acak Soal</button>
+<button onclick="hapusJawaban()">🗑 Hapus Jawaban</button>
+<button class="reset" onclick="resetPoin()">♻ Reset Poin</button>
+</div>
+
+<h3 id="hasil"></h3>
+
+<h3>🏆 Poin: <span id="poin">0</span></h3>
+
+</div>
+
+<script>
+
+let kelas=1;
+let a,b,hasil;
+let poin=0;
+
+function setKelas(k){
+kelas=k;
+acakSoal();
+}
+
+function acakSoal(){
+
+let max;
+
+if(kelas==1) max=10;
+else if(kelas==2) max=20;
+else if(kelas==3) max=50;
+else if(kelas==4) max=100;
+else if(kelas==5) max=500;
+else max=1000;
+
+a=Math.floor(Math.random()*max);
+b=Math.floor(Math.random()*max);
+
+hasil=a+b;
+
+document.getElementById("soal")
+.innerHTML=`Berapa hasil dari ${a} + ${b} ?`;
+
+document.getElementById("hasil").innerHTML="";
+document.getElementById("jawaban").value="";
+}
+
+function cekJawaban(){
+
+let jawab=document.getElementById("jawaban").value;
+
+if(jawab=="") return;
+
+if(parseInt(jawab)==hasil){
+document.getElementById("hasil").innerHTML="✅ BENAR!";
+poin+=10;
+}else{
+document.getElementById("hasil").innerHTML="❌ SALAH!";
+}
+
+document.getElementById("poin").innerHTML=poin;
+}
+
+function hapusJawaban(){
+document.getElementById("jawaban").value="";
+document.getElementById("hasil").innerHTML="";
+}
+
+function resetPoin(){
+if(confirm("Reset semua poin?")){
+poin=0;
+document.getElementById("poin").innerHTML=poin;
+document.getElementById("hasil").innerHTML="Poin direset!";
+}
+}
+
+</script>
+
+</body>
+</html>
