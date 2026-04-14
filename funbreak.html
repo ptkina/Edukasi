@@ -94,7 +94,7 @@ border-radius:15px;
 
 <header>
 🎉 Fun Break Edukatif
-<a href="index.html" class="home">⬅ Home</a>
+<a href="home.html" class="home">⬅ Home</a>
 </header>
 
 <!-- ===================== -->
@@ -132,7 +132,12 @@ border-radius:15px;
 <p>Ikuti gerakan agar tubuh kembali semangat!</p>
 
 <iframe 
-src="https://www.youtube.com/embed/NdIyp6f-h2o"
+src="https://www.youtube.com/embed/c59eIXXd2IE"
+allowfullscreen>
+</iframe>
+
+<iframe 
+src="https://www.youtube.com/embed/XaT_nSQCASU"
 allowfullscreen>
 </iframe>
 
@@ -194,188 +199,3 @@ document.getElementById("hasil").innerHTML="";
 
 </script>
 
-</body>
-</html><!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Fun Break EduMood</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#8fd3f4;
-margin:0;
-text-align:center;
-}
-
-/* HEADER */
-header{
-background:#ffc107;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-weight:bold;
-font-size:22px;
-}
-
-.home{
-background:black;
-color:white;
-padding:8px 15px;
-text-decoration:none;
-border-radius:8px;
-}
-
-.box{
-background:white;
-margin:20px auto;
-padding:20px;
-border-radius:15px;
-width:90%;
-max-width:600px;
-}
-
-img{
-width:250px;
-border-radius:15px;
-margin:15px;
-}
-
-input{
-padding:10px;
-font-size:18px;
-width:200px;
-text-align:center;
-}
-
-button{
-padding:10px 15px;
-margin:5px;
-border:none;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.check{background:#4CAF50;color:white;}
-.random{background:#ff9800;color:white;}
-.reset{background:red;color:white;}
-
-iframe{
-width:100%;
-height:300px;
-border-radius:15px;
-}
-
-</style>
-</head>
-
-<body>
-
-<header>
-🎉 Fun Break Edukatif
-<a href="index.html" class="home">⬅ Home</a>
-</header>
-
-<!-- ===================== -->
-<!-- TEBAK GAMBAR -->
-<!-- ===================== -->
-
-<div class="box">
-
-<h2>🐾 Tebak Gambar Hewan</h2>
-
-<img id="gambarHewan" src="https://source.unsplash.com/300x300/?cat">
-
-<br>
-
-<input id="jawaban" placeholder="Tulis nama hewan">
-
-<br><br>
-
-<button class="check" onclick="cekJawaban()">➡ Cek Jawaban</button>
-<button class="random" onclick="acakGambar()">🔀 Acak Gambar</button>
-<button class="reset" onclick="hapusJawaban()">🗑 Hapus Jawaban</button>
-
-<h3 id="hasil"></h3>
-
-</div>
-
-<!-- ===================== -->
-<!-- GERAKAN SEDERHANA -->
-<!-- ===================== -->
-
-<div class="box">
-
-<h2>🤸 Gerakan Sederhana</h2>
-
-<p>Ikuti gerakan agar tubuh kembali semangat!</p>
-
-<iframe 
-src="https://www.youtube.com/embed/NdIyp6f-h2o"
-allowfullscreen>
-</iframe>
-
-</div>
-
-<!-- ===================== -->
-<!-- MANFAAT -->
-<!-- ===================== -->
-
-<div class="box">
-<h3>✨ Manfaat Fun Break</h3>
-
-<p>✅ Mengembalikan fokus siswa</p>
-<p>✅ Mengurangi kebosanan</p>
-<p>✅ Meningkatkan energi belajar</p>
-
-</div>
-
-<script>
-
-const hewan = [
-{name:"kucing", img:"https://source.unsplash.com/300x300/?cat"},
-{name:"anjing", img:"https://source.unsplash.com/300x300/?dog"},
-{name:"gajah", img:"https://source.unsplash.com/300x300/?elephant"},
-{name:"singa", img:"https://source.unsplash.com/300x300/?lion"},
-{name:"kelinci", img:"https://source.unsplash.com/300x300/?rabbit"},
-{name:"burung", img:"https://source.unsplash.com/300x300/?bird"}
-];
-
-let jawabanBenar="kucing";
-
-function acakGambar(){
-
-let random = hewan[Math.floor(Math.random()*hewan.length)];
-
-document.getElementById("gambarHewan").src=random.img;
-jawabanBenar=random.name;
-
-document.getElementById("hasil").innerHTML="";
-document.getElementById("jawaban").value="";
-}
-
-function cekJawaban(){
-
-let jawab=document.getElementById("jawaban").value.toLowerCase();
-
-if(jawab==jawabanBenar){
-document.getElementById("hasil").innerHTML="✅ BENAR!";
-}else{
-document.getElementById("hasil").innerHTML="❌ SALAH!";
-}
-
-}
-
-function hapusJawaban(){
-document.getElementById("jawaban").value="";
-document.getElementById("hasil").innerHTML="";
-}
-
-</script>
-
-</body>
-</html>
